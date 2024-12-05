@@ -1,0 +1,10 @@
+repos:
+- repo: https://github.com/mattlqx/pre-commit-ruby
+  rev: v1.3.6
+  hooks:
+  - id: rubocop
+    args: ['--autocorrect']
+  - id: foodcritic
+  - id: cookstyle
+  - id: rspec
+  - id: chef-cookbook-version
