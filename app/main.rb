@@ -14,8 +14,17 @@ ENV['APP_ENV'] ||= 'development'
 puts "Environment: #{ENV['APP_ENV']}"
 
 mull_it_over_controller = MullItOverController.new logger
-value = mull_it_over_controller.run 'app/inputs/input.example'
+
+value_one = mull_it_over_controller.run 'app/inputs/input.example'
+
+value_two = mull_it_over_controller.run 'app/inputs/input'
+
 logger.info('=============== SOLUTIONs ===============')
-logger.info("1 Part Solution: #{value[0]}")
-logger.info("2 Part Solution: #{value[1]}")
+logger.info("1 Part Solution: #{value_one[0]}")
+logger.info("2 Part Solution: #{value_one[1]}")
+logger.info('=========================================')
+
+logger.info('=============== SOLUTIONs ===============')
+logger.info("1 Part Solution: #{value_two[0]}")
+logger.info("2 Part Solution: #{value_two[1]}")
 logger.info('=========================================')

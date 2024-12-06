@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
 require_relative '../services/file_service'
-require_relative '../services/mull_it_over_service'
 
 # MullItOverController
 class MullItOverController
   def initialize(logger)
     @logger = logger
     @file_service = FileService.new(logger)
-    @mull_it_over_service = MullItOverService.new(logger)
   end
 
   def run(input_path)
     @logger.debug('Run function starts')
     @logger.debug("Params is input_path: #{input_path}")
 
-    mull_it_over = @file_service.read input_path
-    @logger.debug("Report inspect is: #{mull_it_over.inspect}")
+    mull_it_over_one = @file_service.read_one input_path
+    @logger.debug("Mull it over: #{mull_it_over_one}")
 
-    @logger.debug('Run function ends')
-    [nil, nil]
+    mull_it_over_two = @file_service.read_two input_path
+    @logger.debug("Mull it over: #{mull_it_over_two}")
+
+    [mull_it_over_one, mull_it_over_two]
   end
 end
